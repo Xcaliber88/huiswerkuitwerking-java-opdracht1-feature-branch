@@ -9,8 +9,10 @@ public class Translator {
         for(int i =0; i <numeric.length; i++){
             numericAlpha.put(i, alphabetic[i]);
         }
+    }
 
-
+    public String translate (Integer number) {
+        return numericAlpha.get(number);
     }
 
 }
