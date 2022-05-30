@@ -8,8 +8,32 @@ public class Main {
         Boolean play=true;
         String ongeldig = "ongeldige invoer";
 
-        Scanner scanner = new Scanner(System.in);
 
-        Translator translatorApp = new Translator(numeric,alphabetic);
+        Scanner userInputScanner = new Scanner(System.in);
+
+        String input = userInputScanner.nextLine();
+
+        Translator translator = new Translator(numeric,alphabetic);
+
+        while(play){
+            System.out.println("Type 'x' om te stoppen \nType 'v' om te vertalen");
+            if(input.equalsIgnoreCase("x")){
+                play= false;
+            }else if (input.equalsIgnoreCase("v")){
+                System.out.println("Type een cijfer in van 0 t/m 9");
+            }else{
+                System.out.println(ongeldig);
+            }
+
+            int number= userInputScanner.nextInt();
+
+            if(number<10) {
+                String result= translator.translate(number);
+                System.out.println("De vertaling van " + number + " is " + result);
+            }else {
+                System.out.println("ongeldig");
+            }
+
+        }
     }
 }
